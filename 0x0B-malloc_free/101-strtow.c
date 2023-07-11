@@ -1,31 +1,43 @@
-#include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "holberton.h"
+
 /**
- * strtow - concatenates arguments.
- * @str: String to be splitted.
- *
- * Return: a pointer to array of String.
- */
+* **strtow - function that splits a string into words.
+* @str : pointer
+* Return: Char
+*/
+
 char **strtow(char *str)
 {
-	char *array = NULL;
-	unsigned int i = 0, j = 0, k;
+	char **d;
+	int i;
+	int j = 0;
+	int con = 0;
 
-	if (strncmp(str, "", 1) || str == NULL)
+	if (str == NULL)
 		return (NULL);
-	array = malloc((i + j + 1) * sizeof(char));
-	if (array == NULL)
-		return (NULL);
-	for (k = 0; k < i; k++)
-		array[k] = str[k];
-	i = k;
-	for (k = 0; k < j; k++)
+
+	for (i = 0 ; str[i] != '\0' ; i++)
 	{
-		array[i] = str[k];
-		i++;
+		if (str[i] != 32)
+			con++;
 	}
-	array[i] = '\0';
-	return (NULL);
+
+	d = malloc(sizeof(char) * con);
+
+	if (d == NULL)
+		return (NULL);
+
+	for (i = 0 ; str[i] != '\0' ; i++)
+	{
+		if (str[i] != 32)
+		{
+			*d[j] = str[i];
+			j++;
+		}
+		else
+		{
+		}
+	}
+	return (d);
 }
